@@ -15,5 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-    - id: step1
-      run: echo "Hello Github Actions !"
+    - uses: actions/checkout@v1
+    - name: Build And Deploy
+      id: builddeploy
+      uses: uses: peaceiris/actions-hugo@v2.4.8
+      with:
+        hugo-version: "latest"
+
+    - name: Build
+      run: hugo
